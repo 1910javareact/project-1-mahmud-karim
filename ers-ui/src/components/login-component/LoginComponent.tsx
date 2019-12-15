@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { SyntheticEvent } from 'react'
 import { Typography, Link, Container, CssBaseline, TextField, FormControlLabel, Checkbox, Button, Grid, Box } from '@material-ui/core'
+import { User } from '../../models/user'
 
 function Copyright() {
     return (
@@ -14,7 +15,35 @@ function Copyright() {
     )
 }
 
-export class LoginComponent extends React.Component<any, any>{
+interface ILoginComponentProps {
+    user: User
+    ersLogin: (u: string, p: string) => void
+}
+
+export class LoginComponent extends React.Component<ILoginComponentProps, any>{
+    constructor(props: any) {
+        super(props)
+        this.state = {
+            username: '',
+            password: ''
+        }
+    }
+    updateUsername = (e: any) => {
+        this.setState({
+            ...this.state,
+            username: e.target.value
+        })
+    }
+    updatePassword = (e: any) => {
+        this.setState({
+            ...this.state,
+            password: e.target.value
+        })
+    }
+    submitLogin = async (e: SyntheticEvent) => {
+        e.preventDefault()
+        this.props.ersLogin(this.state.username, this.state.password)
+    }
 
     render() {
         return (
@@ -24,8 +53,10 @@ export class LoginComponent extends React.Component<any, any>{
                     <Typography component="h1" variant="h5">
                         Sign in
                     </Typography>
-                    <form className='{classes.form}' noValidate>
+                    <form onSubmit={this.submitLogin} className='{classes.form}' noValidate>
                         <TextField
+                            value={this.state.username}
+                            onChange={this.updateUsername}
                             variant="outlined"
                             margin="normal"
                             required
@@ -37,6 +68,8 @@ export class LoginComponent extends React.Component<any, any>{
                             autoFocus
                         />
                         <TextField
+                            value={this.state.password}
+                            onChange={this.updatePassword}
                             variant="outlined"
                             margin="normal"
                             required

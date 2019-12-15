@@ -1,6 +1,6 @@
 import { ersUserClient } from "./ers-user-client";
 
-export async function ersLogin(username: string, password: string) {
+export async function ersRemoteLogin(username: string, password: string) {
     const credentails = {
         username,
         password

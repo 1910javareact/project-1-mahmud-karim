@@ -1,4 +1,6 @@
 import { combineReducers } from "redux";
+import { User } from "../models/user";
+import { loginReducer } from "./login-reducer";
 
 //this file will contain the type definitions for our store
 //there will be many interfaces, that contain what each chunk of store should have
@@ -7,15 +9,17 @@ import { combineReducers } from "redux";
 
 //this is specifically, the state from the login component
 //other things will be able to use it, but it is under the nme of login
-
+export interface ILoginState {
+    user: User
+}
 
 //will be the typing of our entire global state
 export interface IState {
-
+    login: ILoginState
 }
 
 //this will combine all of our reducers
 //and make sure they fufill the state required by IState
 export const state = combineReducers<IState>({
-
+    login: loginReducer
 })
