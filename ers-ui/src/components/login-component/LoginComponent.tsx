@@ -1,6 +1,7 @@
 import React, { SyntheticEvent } from 'react'
 import { Typography, Link, Container, CssBaseline, TextField, FormControlLabel, Checkbox, Button, Grid, Box } from '@material-ui/core'
 import { User } from '../../models/user'
+import { Link as Link2 } from 'react-router-dom';
 
 function Copyright() {
     return (
@@ -107,6 +108,7 @@ export class LoginComponent extends React.Component<ILoginComponentProps, any>{
                         </Grid>
                     </form>
                 </div>
+                <Link2 to="/user">User</Link2>
                 <Box mt={8}>
                     <Copyright />
                 </Box>
