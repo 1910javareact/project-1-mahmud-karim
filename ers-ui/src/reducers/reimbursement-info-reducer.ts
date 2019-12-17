@@ -7,6 +7,7 @@ const initialState: IReimbursementState = {
 }
 
 export const reimbursementInfoReducer = (state = initialState, action: any) => {
+    let test
     switch (action.type) {
         case ersReimbursementInfoType.GOT_REIMBURSEMENT_INFO: {
             return {
