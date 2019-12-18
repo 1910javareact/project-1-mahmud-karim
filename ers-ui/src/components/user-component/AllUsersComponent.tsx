@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table } from '@material-ui/core'
+import { Table, Container, Card, TableHead, TableRow, TableBody, TableCell } from '@material-ui/core'
 import { User } from '../../models/user'
 import { UsersRowComponent } from './users-row/UsersRowComponent'
 import { getAllUsers } from '../../remote/ers-clients/ers-user'
@@ -36,23 +36,25 @@ export class AllUsersComponent extends React.Component<any, IAllUsersState>{
             return <UsersRowComponent user={e} key={'user ' + e.userId} />
         })
         return (
-            <div>
-                <Table>
-                    <thead>
-                        <tr>
-                            <td>User ID</td>
-                            <td>Username</td>
-                            <td>First Name</td>
-                            <td>Last Name</td>
-                            <td>Email</td>
-                            <td>Role</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {rows}
-                    </tbody>
-                </Table>
-            </div>
+            <Container component="main" maxWidth="md" >
+                <Card>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>User ID</TableCell>
+                                <TableCell>Username</TableCell>
+                                <TableCell>First Name</TableCell>
+                                <TableCell>Last Name</TableCell>
+                                <TableCell>Email</TableCell>
+                                <TableCell>Role</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {rows}
+                        </TableBody>
+                    </Table>
+                </Card>
+            </Container>
         )
     }
 }
