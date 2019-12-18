@@ -21,7 +21,8 @@ export interface IUserState {
 }
 
 export interface IReimbursementState {
-    reimbursement: Reimbursement
+    // reimbursement: Reimbursement
+    reimbursement: Reimbursement[]
 }
 
 //will be the typing of our entire global state

@@ -108,7 +108,8 @@ export class LoginComponent extends React.Component<ILoginComponentProps, any>{
                         </Grid>
                     </form>
                 </div>
-                <Link2 to="/user">User</Link2>
+                <Link2 to="/user">User </Link2>
+                <Link2 to="/users">Get All Users </Link2>
                 <Link2 to="/reimbursement">Reimbursement</Link2>
                 <Box mt={8}>
                     <Copyright />
