@@ -7,6 +7,7 @@ import { store } from './Store';
 import UserInfoComponent from './components/user-component/UserInfoContainer';
 import ReimbursementInfoComponent from './components/reimbursement-component/ReimbursementInfoContainer';
 import AllUsersComponent from './components/user-component/AllUsersContainer';
+import UserByIdComponent from './components/user-component/UserByIdContainer';
 
 const App: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const App: React.FC = () => {
           <Switch>
             <Route path='/users' component={AllUsersComponent} />
             <Route path='/user' component={UserInfoComponent} />
+            <Route path='/userbyid' component={UserByIdComponent} />
             <Route path='/reimbursement' component={ReimbursementInfoComponent} />
             <Route path='/login' component={LoginComponent} />
             <Route path='/'>
