@@ -1,7 +1,8 @@
 import React from 'react'
 import { Reimbursement } from '../../models/reimbursement'
-import { Container, Card } from '@material-ui/core'
+import { Container, Card, Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core'
 import { User } from '../../models/user'
+import { ReimbursementRowComponent } from './reimbursement-row/ReimbursementRowComponent'
 
 interface IReimbursementInfoComponentProps {
     reimbursement: Reimbursement[]
@@ -15,18 +16,29 @@ export class ReimbursementInfoComponent extends React.Component<IReimbursementIn
     }
 
     render() {
+        let rows = this.props.reimbursement.map((e) => {
+            return <ReimbursementRowComponent reimbursement={e} key={'reimbursement' + e.reimbursementId} />
+        })
         return (
-            <Container component="main" maxWidth="xs" >
-                <Card >
-                    <p className="cardP">ReimbursementId: {this.props.reimbursement[0].reimbursementId}</p>
-                    <p className="cardP">Author: {this.props.reimbursement[0].author}</p>
-                    <p className="cardP">Amount: {this.props.reimbursement[0].amount}</p>
-                    <p className="cardP">Date Submitted: {this.props.reimbursement[0].dateSubmitted}</p>
-                    <p className="cardP">Date Resolved: {this.props.reimbursement[0].dateResolved}</p>
-                    <p className="cardP">Description: {this.props.reimbursement[0].description}</p>
-                    <p className="cardP">Resolver: {this.props.reimbursement[0].resolver}</p>
-                    <p className="cardP">Status: {this.props.reimbursement[0].status}</p>
-                    <p className="cardP">Type: {this.props.reimbursement[0].type}</p>
+            <Container component="main" maxWidth="md" >
+                <Card>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableCell>Reimbursement ID</TableCell>
+                                <TableCell>Author</TableCell>
+                                <TableCell>Amount</TableCell>
+                                <TableCell>Date Submitted</TableCell>
+                                <TableCell>Date Resolved</TableCell>
+                                <TableCell>Description</TableCell>
+                                <TableCell>Status</TableCell>
+                                <TableCell>Type</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {rows}
+                        </TableBody>
+                    </Table>
                 </Card>
             </Container>
         )
