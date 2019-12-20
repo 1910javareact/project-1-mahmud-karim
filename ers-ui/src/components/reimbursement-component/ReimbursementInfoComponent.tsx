@@ -4,7 +4,6 @@ import { Container, Card } from '@material-ui/core'
 import { User } from '../../models/user'
 
 interface IReimbursementInfoComponentProps {
-    // reimbursement: Reimbursement
     reimbursement: Reimbursement[]
     user: User
     ersReimbursementInfo: (userId: number) => void

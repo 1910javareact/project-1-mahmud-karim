@@ -114,6 +114,8 @@ export class LoginComponent extends React.Component<ILoginComponentProps, any>{
                 <br />
                 <Link2 to="/users">Get All Users</Link2>
                 <br />
+                <Link2 to="/reimbursement/status">Reimbursement By Status Id</Link2>
+                <br />
                 <Link2 to="/reimbursement">Reimbursement By User Id</Link2>
                 <br />
                 <Box mt={8}>

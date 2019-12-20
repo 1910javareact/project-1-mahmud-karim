@@ -8,6 +8,7 @@ import UserInfoComponent from './components/user-component/UserInfoContainer';
 import ReimbursementInfoComponent from './components/reimbursement-component/ReimbursementInfoContainer';
 import AllUsersComponent from './components/user-component/AllUsersContainer';
 import UserByIdComponent from './components/user-component/UserByIdContainer';
+import ReimbursementByStatusIdComponent from './components/reimbursement-component/ReimbursementByStatusIdContainer';
 
 const App: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const App: React.FC = () => {
             <Route path='/users' component={AllUsersComponent} />
             <Route path='/user' component={UserInfoComponent} />
             <Route path='/userbyid' component={UserByIdComponent} />
+            <Route path='/reimbursement/status' component={ReimbursementByStatusIdComponent} />
             <Route path='/reimbursement' component={ReimbursementInfoComponent} />
             <Route path='/login' component={LoginComponent} />
             <Route path='/'>
