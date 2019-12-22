@@ -15,7 +15,7 @@ export class UserPageComponent extends React.Component<IUserPageComponentProps, 
         return (
             <Container component="main" maxWidth="md" >
                 <Typography variant="h4" gutterBottom>
-                    Welcome {this.props.user.username}
+                    Welcome User: {this.props.user.username}
                 </Typography>
                 <UserInfoContainer />
                 <br />
