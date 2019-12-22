@@ -15,6 +15,7 @@ import { SubmitReimbursementComponent } from './components/reimbursement-compone
 import { UpdateReimbursementComponent } from './components/reimbursement-component/UpdateReimbursementComponent';
 import UserPageComponent from './components/user-page-component/UserPageContainer';
 import FinanceManagerPageComponent from './components/finance-manager-page-component/FinanceManagerPageContainer';
+import AdminPageComponent from './components/admin-page-component/AdminPageContainer';
 
 const App: React.FC = () => {
   return (
@@ -24,6 +25,7 @@ const App: React.FC = () => {
           <Switch>
             <Route path='/userpage' component={UserPageComponent} />
             <Route path='/finance-manger' component={FinanceManagerPageComponent} />
+            <Route path='/admin' component={AdminPageComponent} />
             <Route path='/users' component={AllUsersComponent} />
             <Route path='/user' component={UserInfoComponent} />
             <Route path='/userbyid' component={UserByIdComponent} />
