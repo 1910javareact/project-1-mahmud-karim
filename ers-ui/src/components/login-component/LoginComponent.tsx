@@ -122,6 +122,10 @@ export class LoginComponent extends React.Component<ILoginComponentProps, any>{
                 <br />
                 <Link2 to="/reimbursement">Reimbursement Info</Link2>
                 <br />
+                <Link2 to="/sumbitreimbursement">Submit Reimbursement</Link2>
+                <br />
+                <Link2 to="/updatereimbursement">Update Reimbursement</Link2>
+                <br />
                 <Box mt={8}>
                     <Copyright />
                 </Box>

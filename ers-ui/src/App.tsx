@@ -11,6 +11,8 @@ import UserByIdComponent from './components/user-component/UserByIdContainer';
 import ReimbursementByStatusIdComponent from './components/reimbursement-component/ReimbursementByStatusIdContainer';
 import ReimbursementByUserIdComponent from './components/reimbursement-component/ReimbursementByUserIdContainer';
 import { UpdateUserComponent } from './components/user-component/UpdateUserComponent';
+import { SubmitReimbursementComponent } from './components/reimbursement-component/SubmitReimbursementComponent';
+import { UpdateReimbursementComponent } from './components/reimbursement-component/UpdateReimbursementComponent';
 
 const App: React.FC = () => {
   return (
@@ -25,6 +27,8 @@ const App: React.FC = () => {
             <Route path='/reimbursement/status' component={ReimbursementByStatusIdComponent} />
             <Route path='/reimbursement/user' component={ReimbursementByUserIdComponent} />
             <Route path='/reimbursement' component={ReimbursementInfoComponent} />
+            <Route path='/sumbitreimbursement' component={SubmitReimbursementComponent} />
+            <Route path='/updatereimbursement' component={UpdateReimbursementComponent} />
             <Route path='/login' component={LoginComponent} />
             <Route path='/'>
               <LoginComponent />
