@@ -14,6 +14,7 @@ import { UpdateUserComponent } from './components/user-component/UpdateUserCompo
 import { SubmitReimbursementComponent } from './components/reimbursement-component/SubmitReimbursementComponent';
 import { UpdateReimbursementComponent } from './components/reimbursement-component/UpdateReimbursementComponent';
 import UserPageComponent from './components/user-page-component/UserPageContainer';
+import FinanceManagerPageComponent from './components/finance-manager-page-component/FinanceManagerPageContainer';
 
 const App: React.FC = () => {
   return (
@@ -22,6 +23,7 @@ const App: React.FC = () => {
         <Router>
           <Switch>
             <Route path='/userpage' component={UserPageComponent} />
+            <Route path='/finance-manger' component={FinanceManagerPageComponent} />
             <Route path='/users' component={AllUsersComponent} />
             <Route path='/user' component={UserInfoComponent} />
             <Route path='/userbyid' component={UserByIdComponent} />
