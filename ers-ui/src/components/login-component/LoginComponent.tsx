@@ -108,6 +108,8 @@ export class LoginComponent extends React.Component<ILoginComponentProps, any>{
                         </Grid>
                     </form>
                 </div>
+                <Link2 to="/userpage">User Page</Link2>
+                <br />
                 <Link2 to="/user">User</Link2>
                 <br />
                 <Link2 to="/userbyid">User By Id</Link2>

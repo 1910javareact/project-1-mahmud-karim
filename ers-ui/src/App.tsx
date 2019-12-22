@@ -13,6 +13,7 @@ import ReimbursementByUserIdComponent from './components/reimbursement-component
 import { UpdateUserComponent } from './components/user-component/UpdateUserComponent';
 import { SubmitReimbursementComponent } from './components/reimbursement-component/SubmitReimbursementComponent';
 import { UpdateReimbursementComponent } from './components/reimbursement-component/UpdateReimbursementComponent';
+import UserPageComponent from './components/user-page-component/UserPageContainer';
 
 const App: React.FC = () => {
   return (
@@ -20,6 +21,7 @@ const App: React.FC = () => {
       <Provider store={store}>
         <Router>
           <Switch>
+            <Route path='/userpage' component={UserPageComponent} />
             <Route path='/users' component={AllUsersComponent} />
             <Route path='/user' component={UserInfoComponent} />
             <Route path='/userbyid' component={UserByIdComponent} />
