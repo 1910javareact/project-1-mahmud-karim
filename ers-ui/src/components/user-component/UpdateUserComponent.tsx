@@ -1,5 +1,5 @@
 import React, { SyntheticEvent } from 'react'
-import { Container, Card, TextField, Button, Typography } from '@material-ui/core'
+import { Container, Card, TextField, Button, Typography, FormControl, FormLabel, RadioGroup, FormControlLabel, Radio } from '@material-ui/core'
 import { updateUser } from '../../remote/ers-clients/ers-user'
 import { Role } from '../../models/role'
 
@@ -99,7 +99,16 @@ export class UpdateUserComponent extends React.Component<any, any> {
                         <TextField value={this.state.firstname} onChange={this.updateFirstname} label="First Name" />
                         <TextField value={this.state.lastname} onChange={this.updateLastname} label="Last Name" />
                         <TextField value={this.state.email} onChange={this.updateEmail} label="Email" />
-                        <TextField value={this.state.role.roleId} onChange={this.updateRole} label="Role" />
+                        <br />
+                        <p> </p>
+                        <FormControl component="fieldset" className='{classes.formControl}'>
+                            <FormLabel component="legend">Role</FormLabel>
+                            <RadioGroup name="type" value={this.state.role.roleId} onChange={this.updateRole}>
+                                <FormControlLabel value="1" control={<Radio />} label="Finance Manager" />
+                                <FormControlLabel value="2" control={<Radio />} label="Admin" />
+                                <FormControlLabel value="3" control={<Radio />} label="User" />
+                            </RadioGroup>
+                        </FormControl>
                         <br />
                         <Button
                             type="submit"

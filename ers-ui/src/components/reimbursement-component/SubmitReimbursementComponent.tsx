@@ -65,7 +65,6 @@ export class SubmitReimbursementComponent extends React.Component<any, any> {
                         <TextField onChange={this.updateDescription} label="Description" />
                         <br />
                         <p> </p>
-                        {/* <TextField onChange={this.updateType} id="standard-basic-4" label="Type" /> */}
                         <FormControl component="fieldset" className='{classes.formControl}'>
                             <FormLabel component="legend">Type</FormLabel>
                             <RadioGroup name="type" value={this.state.type} onChange={this.updateType}>
