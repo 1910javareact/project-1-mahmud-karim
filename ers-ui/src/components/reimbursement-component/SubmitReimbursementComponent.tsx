@@ -1,5 +1,5 @@
 import React, { SyntheticEvent } from 'react'
-import { Container, Card, TextField, Button } from '@material-ui/core'
+import { Container, Card, TextField, Button, Typography } from '@material-ui/core'
 import { ersRemoteSubmitReimbursement } from '../../remote/ers-clients/ers-reimbursement'
 let dt = new Date()
 let today = '' + dt.getFullYear() + dt.getMonth() + dt.getDate()
@@ -55,6 +55,9 @@ export class SubmitReimbursementComponent extends React.Component<any, any> {
     render() {
         return (
             <Container component="main" maxWidth="xs">
+                <Typography component="h1" variant="h5">
+                    Submit Reimbursement
+                </Typography>
                 <Card>
                     <form onSubmit={this.submitReimbursement} className="updateComponent" noValidate autoComplete="off">
                         <TextField onChange={this.updateAmount} id="standard-basic-1" label="Amount" />

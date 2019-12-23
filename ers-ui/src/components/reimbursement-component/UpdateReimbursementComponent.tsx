@@ -1,5 +1,5 @@
 import React, { SyntheticEvent } from "react"
-import { Container, Card, TextField, Button } from "@material-ui/core"
+import { Container, Card, TextField, Button, Typography } from "@material-ui/core"
 import { ersRemoteUpdateReimbursement } from "../../remote/ers-clients/ers-reimbursement"
 
 export class UpdateReimbursementComponent extends React.Component<any, any>{
@@ -46,12 +46,15 @@ export class UpdateReimbursementComponent extends React.Component<any, any>{
     render() {
         return (
             <Container component="main" maxWidth="xs">
+                <Typography component="h1" variant="h5">
+                    Update Reimbursement
+                </Typography>
                 <Card>
                     <form onSubmit={this.updateReimbursement} className="updateComponent" noValidate autoComplete="off">
-                        <TextField onChange={this.updateReimbursementId} id="standard-basic-1" label="Reimbursement ID" />
+                        <TextField onChange={this.updateReimbursementId} label="Reimbursement ID" />
                         <br />
-                        <TextField onChange={this.updateStatus} id="standard-basic-3" label="Status" />
-                        <br />
+                        <TextField onChange={this.updateStatus} label="Status" />
+                        <p> </p>
                         <Button
                             type="submit"
                             fullWidth

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table, Container, Card, TableHead, TableRow, TableBody, TableCell } from '@material-ui/core'
+import { Table, Container, Card, TableHead, TableRow, TableBody, TableCell, Typography } from '@material-ui/core'
 import { User } from '../../models/user'
 import { UsersRowComponent } from './users-row/UsersRowComponent'
 import { getAllUsers } from '../../remote/ers-clients/ers-user'
@@ -37,7 +37,11 @@ export class AllUsersComponent extends React.Component<any, IAllUsersState>{
         })
         return (
             <Container component="main" maxWidth="md" >
+                <Typography component="h1" variant="h5">
+                    All User Information
+                </Typography>
                 <Card>
+
                     <Table>
                         <TableHead>
                             <TableRow>

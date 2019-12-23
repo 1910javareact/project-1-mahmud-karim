@@ -1,6 +1,6 @@
 import React from 'react'
 import { Reimbursement } from '../../models/reimbursement'
-import { Container, Card, Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core'
+import { Container, Card, Table, TableHead, TableRow, TableCell, TableBody, Typography } from '@material-ui/core'
 import { User } from '../../models/user'
 import { ReimbursementRowComponent } from './reimbursement-row/ReimbursementRowComponent'
 
@@ -21,6 +21,9 @@ export class ReimbursementInfoComponent extends React.Component<IReimbursementIn
         })
         return (
             <Container component="main" maxWidth="md" >
+                <Typography component="h1" variant="h5">
+                    My Reimbursements
+                </Typography>
                 <Card>
                     <Table>
                         <TableHead>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { User } from '../../models/user';
-import { Card, Container } from '@material-ui/core';
+import { Card, Container, Typography } from '@material-ui/core';
 
 interface IUserInfoComponentProps {
     user: User
@@ -11,6 +11,9 @@ export class UserInfoComponent extends React.Component<IUserInfoComponentProps, 
     render() {
         return (
             <Container component="main" maxWidth="xs" >
+                <Typography component="h1" variant="h5">
+                    My Information
+                </Typography>
                 <Card >
                     <p className="cardP">UserID: {this.props.user.userId}</p>
                     <p className="cardP">Username: {this.props.user.username}</p>

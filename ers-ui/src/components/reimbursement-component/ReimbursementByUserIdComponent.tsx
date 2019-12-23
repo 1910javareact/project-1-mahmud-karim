@@ -1,6 +1,6 @@
 import React, { SyntheticEvent } from 'react'
 import { Reimbursement } from '../../models/reimbursement';
-import { Container, TextField, Button, Card, Table, TableHead, TableRow, TableCell, TableBody } from '@material-ui/core';
+import { Container, TextField, Button, Card, Table, TableHead, TableRow, TableCell, TableBody, Typography } from '@material-ui/core';
 import { ReimbursementRowComponent } from './reimbursement-row/ReimbursementRowComponent';
 
 interface IReimbursementByUserIdComponentProps {
@@ -32,48 +32,53 @@ export class ReimbursementByUserIdComponent extends React.Component<IReimburseme
         })
         return (
             <Container component="main" maxWidth="md" >
-                <form onSubmit={this.submitUserId} className='{classes.form}' noValidate>
-                    <TextField
-                        value={this.state.userId}
-                        onChange={this.updateUserId}
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        id="userid"
-                        label="User ID"
-                        name="userid"
-                        autoComplete="userid"
-                        autoFocus
-                    />
-                    <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                        className='{classes.submit}'
-                    >
-                        Get Reimbursements
-                </Button>
-                </form>
+                <Typography component="h1" variant="h5">
+                    Get Reimbursements by Status ID
+                </Typography>
                 <Card>
-                    <Table>
-                        <TableHead>
-                            <TableRow>
-                                <TableCell>Reimbursement ID</TableCell>
-                                <TableCell>Author</TableCell>
-                                <TableCell>Amount</TableCell>
-                                <TableCell>Date Submitted</TableCell>
-                                <TableCell>Date Resolved</TableCell>
-                                <TableCell>Description</TableCell>
-                                <TableCell>Status</TableCell>
-                                <TableCell>Type</TableCell>
-                            </TableRow>
-                        </TableHead>
-                        <TableBody>
-                            {rows}
-                        </TableBody>
-                    </Table>
+                    <form onSubmit={this.submitUserId} className='{classes.form}' noValidate>
+                        <TextField
+                            value={this.state.userId}
+                            onChange={this.updateUserId}
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="userid"
+                            label="User ID"
+                            name="userid"
+                            autoComplete="userid"
+                            autoFocus
+                        />
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            className='{classes.submit}'
+                        >
+                            Get Reimbursements
+                </Button>
+                    </form>
+                    <Card>
+                        <Table>
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell>Reimbursement ID</TableCell>
+                                    <TableCell>Author</TableCell>
+                                    <TableCell>Amount</TableCell>
+                                    <TableCell>Date Submitted</TableCell>
+                                    <TableCell>Date Resolved</TableCell>
+                                    <TableCell>Description</TableCell>
+                                    <TableCell>Status</TableCell>
+                                    <TableCell>Type</TableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {rows}
+                            </TableBody>
+                        </Table>
+                    </Card>
                 </Card>
             </Container>
         )

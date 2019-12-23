@@ -1,5 +1,5 @@
 import React, { SyntheticEvent } from 'react'
-import { Container, Card, TextField, Button } from '@material-ui/core'
+import { Container, Card, TextField, Button, Typography } from '@material-ui/core'
 import { updateUser } from '../../remote/ers-clients/ers-user'
 import { Role } from '../../models/role'
 
@@ -7,7 +7,7 @@ export class UpdateUserComponent extends React.Component<any, any> {
     constructor(props: any) {
         super(props)
         this.state = {
-            updated: false,
+            updated: '',
             userId: 0,
             username: '',
             password: '',
@@ -66,39 +66,40 @@ export class UpdateUserComponent extends React.Component<any, any> {
             if (u.status === 200) {
                 this.setState({
                     ...this.state,
-                    updated: true
+                    updated: 'Updated'
                 })
             } else {
                 this.setState({
                     ...this.state,
-                    updated: false
+                    updated: 'Failed to Update'
                 })
             }
         } catch (e) {
             console.log(e);
-
+            this.setState({
+                ...this.state,
+                updated: 'Failed to Update'
+            })
         }
 
 
     }
 
     render() {
-        let message = () => {
-            if (this.state.updated) {
-                return <p>User Updated</p>
-            }
-        }
         return (
             <Container component="main" maxWidth="xs">
+                <Typography component="h1" variant="h5">
+                    Update User Information
+                </Typography>
                 <Card>
                     <form onSubmit={this.submitUpdate} className="updateComponent" noValidate autoComplete="off">
-                        <TextField value={this.state.userId} onChange={this.updateUserId} id="standard-basic-1" label="User ID" />
-                        <TextField value={this.state.username} onChange={this.updateUsername} id="standard-basic-2" label="Username" />
-                        <TextField value={this.state.password} onChange={this.updatePassword} id="standard-basic-3" label="Password" />
-                        <TextField value={this.state.firstname} onChange={this.updateFirstname} id="standard-basic-4" label="First Name" />
-                        <TextField value={this.state.lastname} onChange={this.updateLastname} id="standard-basic-5" label="Last Name" />
-                        <TextField value={this.state.email} onChange={this.updateEmail} id="standard-basic-6" label="Email" />
-                        <TextField value={this.state.role.roleId} onChange={this.updateRole} id="standard-basic" label="Role" />
+                        <TextField value={this.state.userId} onChange={this.updateUserId} label="User ID" />
+                        <TextField value={this.state.username} onChange={this.updateUsername} label="Username" />
+                        <TextField value={this.state.password} onChange={this.updatePassword} label="Password" />
+                        <TextField value={this.state.firstname} onChange={this.updateFirstname} label="First Name" />
+                        <TextField value={this.state.lastname} onChange={this.updateLastname} label="Last Name" />
+                        <TextField value={this.state.email} onChange={this.updateEmail} label="Email" />
+                        <TextField value={this.state.role.roleId} onChange={this.updateRole} label="Role" />
                         <br />
                         <Button
                             type="submit"
@@ -110,7 +111,7 @@ export class UpdateUserComponent extends React.Component<any, any> {
                             Update
                         </Button>
                     </form>
-                    {message()}
+                    <p>{this.state.updated}</p>
                 </Card>
             </Container>
         )
