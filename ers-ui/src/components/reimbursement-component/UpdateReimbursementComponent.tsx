@@ -57,8 +57,8 @@ export class UpdateReimbursementComponent extends React.Component<any, any>{
                         {/* <TextField onChange={this.updateStatus} label="Status" /> */}
                         <FormControl component="fieldset" className='{classes.formControl}'>
                             <RadioGroup name="type" value={this.state.status} onChange={this.updateStatus}>
-                                <FormControlLabel value="2" control={<Radio />} label="Approved" />
-                                <FormControlLabel value="3" control={<Radio />} label="Denied" />
+                                <FormControlLabel value="2" control={<Radio />} label="Approve" />
+                                <FormControlLabel value="3" control={<Radio />} label="Deny" />
                             </RadioGroup>
                         </FormControl>
                         <Button

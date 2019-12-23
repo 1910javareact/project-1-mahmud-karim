@@ -9,6 +9,7 @@ import UserByIdContainer from "../user-component/UserByIdContainer"
 import { UpdateReimbursementComponent } from "../reimbursement-component/UpdateReimbursementComponent"
 import ReimbursementByStatusIdContainer from "../reimbursement-component/ReimbursementByStatusIdContainer"
 import ReimbursementByUserIdContainer from "../reimbursement-component/ReimbursementByUserIdContainer"
+import { Redirect } from "react-router"
 
 interface IFinanceManagerPageComponentProps {
     user: User
@@ -17,34 +18,37 @@ interface IFinanceManagerPageComponentProps {
 export class FinanceManagerPageComponent extends React.Component<IFinanceManagerPageComponentProps, any>{
     render() {
         return (
-            <Container component="main" maxWidth="md" >
-                <AppBar position="static">
-                    <Toolbar>
-                        <Button href="/login" color="inherit">Logout</Button>
-                    </Toolbar>
-                </AppBar>
-                <p> </p>
-                <Card>
-                    <Typography variant="h4" gutterBottom>
-                        Welcome Finance Manager: {this.props.user.username}
-                    </Typography>
-                    <UserInfoContainer />
-                    <br />
-                    <AllUsersContainer />
-                    <br />
-                    <UserByIdContainer />
-                    <br />
-                    <ReimbursementInfoContainer />
-                    <br />
-                    <ReimbursementByUserIdContainer />
-                    <br />
-                    <ReimbursementByStatusIdContainer />
-                    <br />
-                    <UpdateReimbursementComponent />
-                    <br />
-                    <SubmitReimbursementComponent />
-                </Card>
-            </Container>
+            this.props.user.userId ?
+                <Container component="main" maxWidth="md" >
+                    <AppBar position="static">
+                        <Toolbar>
+                            <Button href="/login" color="inherit">Logout</Button>
+                        </Toolbar>
+                    </AppBar>
+                    <p> </p>
+                    <Card>
+                        <Typography variant="h4" gutterBottom>
+                            Welcome Finance Manager: {this.props.user.username}
+                        </Typography>
+                        <UserInfoContainer />
+                        <br />
+                        <AllUsersContainer />
+                        <br />
+                        <UserByIdContainer />
+                        <br />
+                        <ReimbursementInfoContainer />
+                        <br />
+                        <ReimbursementByUserIdContainer />
+                        <br />
+                        <ReimbursementByStatusIdContainer />
+                        <br />
+                        <UpdateReimbursementComponent />
+                        <br />
+                        <SubmitReimbursementComponent />
+                    </Card>
+                </Container>
+                :
+                <Redirect to='/login' />
         )
     }
 }

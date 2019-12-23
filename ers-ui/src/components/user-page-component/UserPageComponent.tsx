@@ -4,6 +4,7 @@ import { Container, Typography, Card, AppBar, Toolbar, Button } from '@material-
 import UserInfoContainer from '../user-component/UserInfoContainer';
 import ReimbursementInfoContainer from '../reimbursement-component/ReimbursementInfoContainer';
 import { SubmitReimbursementComponent } from '../reimbursement-component/SubmitReimbursementComponent';
+import { Redirect } from 'react-router';
 
 interface IUserPageComponentProps {
     user: User
@@ -13,24 +14,27 @@ export class UserPageComponent extends React.Component<IUserPageComponentProps, 
 
     render() {
         return (
-            <Container component="main" maxWidth="md" >
-                <AppBar position="static">
-                    <Toolbar>
-                        <Button href="/login" color="inherit">Logout</Button>
-                    </Toolbar>
-                </AppBar>
-                <p> </p>
-                <Card>
-                    <Typography variant="h4" gutterBottom>
-                        Welcome User: {this.props.user.username}
-                    </Typography>
-                    <UserInfoContainer />
-                    <br />
-                    <ReimbursementInfoContainer />
-                    <br />
-                    <SubmitReimbursementComponent />
-                </Card>
-            </Container>
+            this.props.user.userId ?
+                <Container component="main" maxWidth="md" >
+                    <AppBar position="static">
+                        <Toolbar>
+                            <Button href="/login" color="inherit">Logout</Button>
+                        </Toolbar>
+                    </AppBar>
+                    <p> </p>
+                    <Card>
+                        <Typography variant="h4" gutterBottom>
+                            Welcome User: {this.props.user.username}
+                        </Typography>
+                        <UserInfoContainer />
+                        <br />
+                        <ReimbursementInfoContainer />
+                        <br />
+                        <SubmitReimbursementComponent />
+                    </Card>
+                </Container>
+                :
+                <Redirect to='/login' />
         )
     }
 }

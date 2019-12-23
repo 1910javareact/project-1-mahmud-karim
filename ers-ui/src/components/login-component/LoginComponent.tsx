@@ -23,7 +23,8 @@ export class LoginComponent extends React.Component<ILoginComponentProps, any>{
         super(props)
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            invalid: ''
         }
     }
     updateUsername = (e: any) => {
@@ -40,8 +41,15 @@ export class LoginComponent extends React.Component<ILoginComponentProps, any>{
     }
     submitLogin = async (e: SyntheticEvent) => {
         e.preventDefault()
-        await this.props.ersLogin(this.state.username, this.state.password)
+        try {
+            await this.props.ersLogin(this.state.username, this.state.password)
+            this.setState({
+                ...this.state,
+                invalid: 'Login Failed Username or Password Wrong'
+            })
+        } catch (e) {
 
+        }
     }
 
     render() {
@@ -99,6 +107,7 @@ export class LoginComponent extends React.Component<ILoginComponentProps, any>{
                         >
                             Sign In
                         </Button>
+                        <p>{this.state.invalid}</p>
                         <Grid container>
                             <Grid item xs>
                                 <Link href="#" variant="body2">
