@@ -1,5 +1,5 @@
 import React, { SyntheticEvent } from "react"
-import { Container, Card, TextField, Button, Typography } from "@material-ui/core"
+import { Container, Card, TextField, Button, Typography, FormControl, RadioGroup, FormControlLabel, Radio } from "@material-ui/core"
 import { ersRemoteUpdateReimbursement } from "../../remote/ers-clients/ers-reimbursement"
 
 export class UpdateReimbursementComponent extends React.Component<any, any>{
@@ -53,8 +53,14 @@ export class UpdateReimbursementComponent extends React.Component<any, any>{
                     <form onSubmit={this.updateReimbursement} className="updateComponent" noValidate autoComplete="off">
                         <TextField onChange={this.updateReimbursementId} label="Reimbursement ID" />
                         <br />
-                        <TextField onChange={this.updateStatus} label="Status" />
                         <p> </p>
+                        {/* <TextField onChange={this.updateStatus} label="Status" /> */}
+                        <FormControl component="fieldset" className='{classes.formControl}'>
+                            <RadioGroup name="type" value={this.state.status} onChange={this.updateStatus}>
+                                <FormControlLabel value="2" control={<Radio />} label="Approved" />
+                                <FormControlLabel value="3" control={<Radio />} label="Denied" />
+                            </RadioGroup>
+                        </FormControl>
                         <Button
                             type="submit"
                             fullWidth

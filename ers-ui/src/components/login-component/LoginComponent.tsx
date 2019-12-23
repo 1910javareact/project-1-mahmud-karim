@@ -1,15 +1,12 @@
 import React, { SyntheticEvent } from 'react'
 import { Typography, Link, Container, CssBaseline, TextField, FormControlLabel, Checkbox, Button, Grid, Box } from '@material-ui/core'
 import { User } from '../../models/user'
-import { Link as Link2 } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 function Copyright() {
     return (
         <Typography variant='body2' color='textSecondary' align='center'>
-            {'Copyright © '}
-            <Link color='inherit' href='https://material-ui.com/'>
-                Mahmud's Site
-            </Link>{' '}
+            {"Copyright © Mahmud's Site "}
             {new Date().getFullYear()}
             {'.'}
         </Typography>
@@ -43,10 +40,18 @@ export class LoginComponent extends React.Component<ILoginComponentProps, any>{
     }
     submitLogin = async (e: SyntheticEvent) => {
         e.preventDefault()
-        this.props.ersLogin(this.state.username, this.state.password)
+        await this.props.ersLogin(this.state.username, this.state.password)
+
     }
 
     render() {
+        if (this.props.user.role.role === 'finance-manager') {
+            return <Redirect to="/finance-manger" />
+        } else if (this.props.user.role.role === 'admin') {
+            return <Redirect to="/admin" />
+        } else if (this.props.user.role.role === 'user') {
+            return <Redirect to="/userpage" />
+        }
         return (
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
@@ -108,7 +113,7 @@ export class LoginComponent extends React.Component<ILoginComponentProps, any>{
                         </Grid>
                     </form>
                 </div>
-                <Link2 to="/userpage">User Page</Link2>
+                {/* <Link2 to="/userpage">User Page</Link2>
                 <br />
                 <Link2 to="/finance-manger">Finance Manager Page</Link2>
                 <br />
@@ -131,7 +136,7 @@ export class LoginComponent extends React.Component<ILoginComponentProps, any>{
                 <Link2 to="/sumbitreimbursement">Submit Reimbursement</Link2>
                 <br />
                 <Link2 to="/updatereimbursement">Update Reimbursement</Link2>
-                <br />
+                <br /> */}
                 <Box mt={8}>
                     <Copyright />
                 </Box>

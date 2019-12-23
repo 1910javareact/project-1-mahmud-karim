@@ -12,7 +12,7 @@ export class ReimbursementByUserIdComponent extends React.Component<IReimburseme
     constructor(props: any) {
         super(props)
         this.state = {
-            userId: undefined
+            userId: 0
         }
     }
     updateUserId = (e: any) => {
@@ -33,22 +33,19 @@ export class ReimbursementByUserIdComponent extends React.Component<IReimburseme
         return (
             <Container component="main" maxWidth="md" >
                 <Typography component="h1" variant="h5">
-                    Get Reimbursements by Status ID
+                    Get Reimbursements by User ID
                 </Typography>
                 <Card>
                     <form onSubmit={this.submitUserId} className='{classes.form}' noValidate>
                         <TextField
-                            value={this.state.userId}
                             onChange={this.updateUserId}
                             variant="outlined"
                             margin="normal"
                             required
                             fullWidth
-                            id="userid"
                             label="User ID"
                             name="userid"
                             autoComplete="userid"
-                            autoFocus
                         />
                         <Button
                             type="submit"

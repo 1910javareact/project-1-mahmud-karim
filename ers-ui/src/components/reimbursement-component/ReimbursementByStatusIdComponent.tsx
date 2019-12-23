@@ -1,6 +1,6 @@
 import React, { SyntheticEvent } from 'react'
 import { Reimbursement } from '../../models/reimbursement'
-import { Container, Card, Table, TableHead, TableRow, TableCell, TableBody, TextField, Button, Typography } from '@material-ui/core'
+import { Container, Card, Table, TableHead, TableRow, TableCell, TableBody, Button, Typography, Radio, RadioGroup, FormControlLabel, FormControl } from '@material-ui/core'
 import { ReimbursementRowComponent } from './reimbursement-row/ReimbursementRowComponent'
 
 interface IReimbursementByStatusIdComponentProps {
@@ -12,7 +12,7 @@ export class ReimbursementByStatusIdComponent extends React.Component<IReimburse
     constructor(props: any) {
         super(props)
         this.state = {
-            statusId: undefined
+            statusId: 0
         }
     }
     updateStatusId = (e: any) => {
@@ -37,8 +37,7 @@ export class ReimbursementByStatusIdComponent extends React.Component<IReimburse
                 </Typography>
                 <Card>
                     <form onSubmit={this.submitStatusId} className='{classes.form}' noValidate>
-                        <TextField
-                            value={this.state.statusId}
+                        {/* <TextField
                             onChange={this.updateStatusId}
                             variant="outlined"
                             margin="normal"
@@ -48,8 +47,14 @@ export class ReimbursementByStatusIdComponent extends React.Component<IReimburse
                             label="Status ID"
                             name="statusid"
                             autoComplete="statusid"
-                            autoFocus
-                        />
+                        /> */}
+                        <FormControl component="fieldset" className='{classes.formControl}'>
+                            <RadioGroup name="type" value={this.state.statusId} onChange={this.updateStatusId}>
+                                <FormControlLabel value="1" control={<Radio />} label="Pending" />
+                                <FormControlLabel value="2" control={<Radio />} label="Approved" />
+                                <FormControlLabel value="3" control={<Radio />} label="Denied" />
+                            </RadioGroup>
+                        </FormControl>
                         <Button
                             type="submit"
                             fullWidth

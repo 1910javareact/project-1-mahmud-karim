@@ -51,7 +51,6 @@ export class UserByIdComponent extends React.Component<IUserByIdComponentProps, 
                             label="User ID"
                             name="userid"
                             autoComplete="userid"
-                            autoFocus
                         />
                         <Button
                             type="submit"

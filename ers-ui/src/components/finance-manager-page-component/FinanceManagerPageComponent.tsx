@@ -1,5 +1,5 @@
 import React from "react"
-import { Container, Typography, Card } from "@material-ui/core"
+import { Container, Typography, Card, Toolbar, Button, AppBar } from "@material-ui/core"
 import { User } from "../../models/user"
 import UserInfoContainer from "../user-component/UserInfoContainer"
 import ReimbursementInfoContainer from "../reimbursement-component/ReimbursementInfoContainer"
@@ -18,6 +18,12 @@ export class FinanceManagerPageComponent extends React.Component<IFinanceManager
     render() {
         return (
             <Container component="main" maxWidth="md" >
+                <AppBar position="static">
+                    <Toolbar>
+                        <Button href="/login" color="inherit">Logout</Button>
+                    </Toolbar>
+                </AppBar>
+                <p> </p>
                 <Card>
                     <Typography variant="h4" gutterBottom>
                         Welcome Finance Manager: {this.props.user.username}
@@ -30,9 +36,9 @@ export class FinanceManagerPageComponent extends React.Component<IFinanceManager
                     <br />
                     <ReimbursementInfoContainer />
                     <br />
-                    <ReimbursementByStatusIdContainer />
-                    <br />
                     <ReimbursementByUserIdContainer />
+                    <br />
+                    <ReimbursementByStatusIdContainer />
                     <br />
                     <UpdateReimbursementComponent />
                     <br />
